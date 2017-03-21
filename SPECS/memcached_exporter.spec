@@ -84,7 +84,7 @@ fi
 %{?el6:/usr/sbin/%{name}}
 %{?el7:/usr/bin/%{name}}
 %{?el6:%{_initddir}/%{name}}
-%{?el7:/usr/lib/systemd/system/%{name}}
+%{?el7:/usr/lib/systemd/system/%{name}.service}
 %config(noreplace) /etc/default/%{name}
 %attr(755, prometheus, prometheus)/var/lib/prometheus
 %doc _build/%{_git_slug}/CONTRIBUTING.md _build/%{_git_slug}/LICENSE _build/%{_git_slug}/NOTICE _build/%{_git_slug}/README.md
