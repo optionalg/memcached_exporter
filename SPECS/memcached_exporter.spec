@@ -19,7 +19,7 @@ Source3: %{name}.init
 Requires(pre): shadow-utils
 %{?el6:Requires: daemonize}
 %{?el7:%{?systemd_requires}}
-BuildRequires: golang, git, memcached
+BuildRequires: golang, git
 
 %description
 A memcached exporter for prometheus.
@@ -30,8 +30,6 @@ export GOPATH=$(pwd)/_build
 git clone https://github.com/prometheus/%{name} $GOPATH/%{_git_slug}
 cd $GOPATH/%{_git_slug}
 git checkout v%{version}
-%{?el6:/etc/init.d/memcached start}
-%{?el7:systemctl start memcached}
 
 %build
 export GOPATH=$(pwd)/_build
