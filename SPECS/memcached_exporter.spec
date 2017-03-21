@@ -4,7 +4,7 @@
 
 Name:    memcached_exporter
 Version: 0.3.0
-Release: 1.vortex%{?dist}
+Release: 2.vortex%{?dist}
 Summary: Memcached Exporter for Prometheus
 License: ASL 2.0
 Vendor:  Vortex RPM
@@ -48,7 +48,7 @@ mkdir -vp %{buildroot}/etc/default
 %{?el6:install -m 755 $GOPATH/%{_git_slug}/%{name} %{buildroot}/usr/sbin/%{name}}
 %{?el7:install -m 755 $GOPATH/%{_git_slug}/%{name} %{buildroot}/usr/bin/%{name}}
 %{?el6:install -m 755 %{SOURCE3} %{buildroot}%{_initddir}/%{name}}
-%{?el7:install -m 755 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/%{name}}
+%{?el7:install -m 755 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/%{name}.service}
 install -m 644 %{SOURCE2} %{buildroot}/etc/default/%{name}
 
 %pre
@@ -90,5 +90,8 @@ fi
 %doc _build/%{_git_slug}/CONTRIBUTING.md _build/%{_git_slug}/LICENSE _build/%{_git_slug}/NOTICE _build/%{_git_slug}/README.md
 
 %changelog
+* Tue Mar 21 2017 Ilya Otyutskiy <ilya.otyutskiy@icloud.com> - 0.3.0-2.vortex
+- [el7] Fix unit-file name
+
 * Tue Mar 21 2017 Ilya Otyutskiy <ilya.otyutskiy@icloud.com> - 0.3.0-1.vortex
 - Initial packaging
