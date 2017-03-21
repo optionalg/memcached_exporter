@@ -81,7 +81,8 @@ fi
 
 %files
 %defattr(-,root,root,-)
-/usr/sbin/%{name}
+%{?el6:/usr/sbin/%{name}}
+%{?el7:/usr/bin/%{name}}
 %{?el6:%{_initddir}/%{name}}
 %{?el7:/usr/lib/systemd/system/%{name}}
 %config(noreplace) /etc/default/%{name}
