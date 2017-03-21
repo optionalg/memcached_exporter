@@ -34,7 +34,8 @@ git checkout v%{version}
 %build
 export GOPATH=$(pwd)/_build
 cd $GOPATH/%{_git_slug}
-make
+make format
+make build
 
 %install
 export GOPATH=$(pwd)/_build
